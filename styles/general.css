@@ -3,30 +3,85 @@
     flex-direction: row;
     justify-content: center;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 body {
-    background-color: bisque;
+    background-color: rgb(90, 88, 88);
 }
 
-#hero-section {
-    /*display: flex;
-    flex-direction: column;
-    justify-content: center;
-    */
+h1 {
+    margin-left: 500px;
+    margin-top: 40px;
+    color: palevioletred;
+    font-weight: bolder;
 }
-
 #hero-section input{
     display: inline-block;
     margin-top: 30px;
     width: 400px;
-    margin-left: 450px;
-    
-
+    margin-left: 320px;
+    color: rgb(90, 88, 88);
+    font-weight: bold;
+    font-size: 16px;
 }
 
 #hero-section button {
-    display: inline-block;
-    padding-left: 5px;
-    padding-right: 5px;
+    display: inline-block; 
+    margin-left: 5px;
+}
+
+button {
+    color: white;
+    background-color: palevioletred;
+    border: none;
+    border-radius: 20px;
+    height: 35px;
+    width: 100px;  
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(199, 47, 98);
+    color: whitesmoke;
+}
+
+#delete-btn {
+    color: white;
+    background-color: rgb(184, 33, 33);
+    border: none;
+    border-radius: 20px;
+    height: 35px;
+    width: 100px;
+    cursor: pointer;
+}
+
+#delete-btn:hover {
+    color: wheat;
+    background-color: rgb(110, 2, 2);
+}
+#todo-input {
+    padding: 10px 150px;
+    border-style: none;
+    border-radius: 20px;
+    box-shadow: inset 1px 2px 2px rgba(0, 0, 0, 0.3);
+
+}
+
+#task {
+    padding: 10px 100px;
+    border-style: none;
+    border-radius: 20px;
+ 
+}
+
+input::placeholder {
+    color: palevioletred;
+    font-size: 16px;
+}
+
+
+
+input:hover {
+    background-color: rgb(226, 217, 220);
 }

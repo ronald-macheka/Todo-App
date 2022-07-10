@@ -24,13 +24,16 @@ function addTodo() {
         let taskDisplayElement = document.createElement('input');
         //add content to the task output element
         taskDisplayElement.value = input;
-        taskDisplayElement.setAttribute('readonly', 'readonly')
+        taskDisplayElement.setAttribute('readonly', 'readonly');
+        taskDisplayElement.setAttribute('id', 'task');
     //append task output to hero section
     heroSectionElement.append(taskDisplayElement);
     const editBtn = document.createElement('button');
+    editBtn.setAttribute('id', 'edit-btn');
     editBtn.textContent = 'edit'
     heroSectionElement.append(editBtn);
     const deleteBtn = document.createElement('button');
+    deleteBtn.setAttribute('id', 'delete-btn');
     deleteBtn.textContent = 'delete';
     heroSectionElement.append(deleteBtn);
   
@@ -45,10 +48,14 @@ function addTodo() {
             if (editBtn.textContent === 'edit') {
                 taskDisplayElement.removeAttribute('readonly');
                 editBtn.textContent = 'update';
+                taskDisplayElement.style.border = 'solid';
+                taskDisplayElement.style.borderColor = 'palevioletred'
             } else if (editBtn.textContent === 'update') {
                 taskDisplayElement.setAttribute('readonly', 'readonly')
                 editBtn.textContent = 'edit';
-                return;
+                taskDisplayElement.style.border = 'none';
+                taskDisplayElement.style.borderColor = 'none';
+                //return;
         }
         
         }
