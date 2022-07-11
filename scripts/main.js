@@ -1,15 +1,14 @@
-//get reference to the to do input
+//todo input reference
 let todoInput = document.getElementById('todo-input');
-//get reference to the add to do button
+//add todo button reference
 const addTodoBtn = document.getElementById('add-todo-btn');
-//get fererence to the hero section to display to do items
+//hero section reference
 const heroSectionElement = document.getElementById('hero-section');
-//get reference to edit button
 
 //add button event handler
 function addTodo() {
 
-    if (todoInput.value === '') {
+    if (todoInput.value === '') {//check if user has typed in todo item, if not send an alert msg
         alert('Please enter valid todo task!')
     } else {
         //prevent form from submitting
@@ -19,51 +18,66 @@ function addTodo() {
         //clear todo input field
         todoInput.value = '';
         //test if function works by printing to the console
-        console.log(input)
+        console.log(input);
+
         //create input element to output todo task
         let taskDisplayElement = document.createElement('input');
         //add content to the task output element
         taskDisplayElement.value = input;
+        //set todo item to readonly
         taskDisplayElement.setAttribute('readonly', 'readonly');
+        //todo item id
         taskDisplayElement.setAttribute('id', 'task');
-    //append task output to hero section
-    heroSectionElement.append(taskDisplayElement);
-    const editBtn = document.createElement('button');
-    editBtn.setAttribute('id', 'edit-btn');
-    editBtn.textContent = 'edit'
-    heroSectionElement.append(editBtn);
-    const deleteBtn = document.createElement('button');
-    deleteBtn.setAttribute('id', 'delete-btn');
-    deleteBtn.textContent = 'delete';
-    heroSectionElement.append(deleteBtn);
-  
-    function deleteTask() {
-        console.log('delete btn cliked')
-        taskDisplayElement.remove()
-        editBtn.remove()
-        deleteBtn.remove()
-        }
+        //append captured todo task to hero section
+        heroSectionElement.append(taskDisplayElement);
 
-        function editTask() {
-            if (editBtn.textContent === 'edit') {
-                taskDisplayElement.removeAttribute('readonly');
-                editBtn.textContent = 'update';
-                taskDisplayElement.style.border = 'solid';
-                taskDisplayElement.style.borderColor = 'palevioletred'
-            } else if (editBtn.textContent === 'update') {
-                taskDisplayElement.setAttribute('readonly', 'readonly')
-                editBtn.textContent = 'edit';
-                taskDisplayElement.style.border = 'none';
-                taskDisplayElement.style.borderColor = 'none';
-                //return;
-        }
-        
-        }
+        //create edit btn for editing todos
+        const editBtn = document.createElement('button');
+        //set edit button id
+        editBtn.setAttribute('id', 'edit-btn');
+        //edit button value
+        editBtn.textContent = 'edit'
+        //append edit button to hero section 
+        heroSectionElement.append(editBtn);
 
-    editBtn.addEventListener('click', editTask)    
-    deleteBtn.addEventListener('click', deleteTask)
+        //create delete btn for deleting todos
+        const deleteBtn = document.createElement('button');
+        //set delet button id
+        deleteBtn.setAttribute('id', 'delete-btn');
+        //delete button value
+        deleteBtn.textContent = 'delete';
+        //append edit button to hero section 
+        heroSectionElement.append(deleteBtn);
         
-    }//end of else block
+            //deletes todo task        
+            function deleteTask() {
+                console.log('delete btn cliked')
+                taskDisplayElement.remove()
+                editBtn.remove()
+                deleteBtn.remove()
+                }
+
+            //edits todo task
+            function editTask() {
+                if (editBtn.textContent === 'edit') { //start of if...else block
+                    taskDisplayElement.removeAttribute('readonly');
+                    editBtn.textContent = 'update';
+                    taskDisplayElement.style.border = 'solid';
+                    taskDisplayElement.style.borderColor = 'palevioletred'
+                } else if (editBtn.textContent === 'update') {
+                    taskDisplayElement.setAttribute('readonly', 'readonly')
+                    editBtn.textContent = 'edit';
+                    taskDisplayElement.style.border = 'none';
+                    taskDisplayElement.style.borderColor = 'none';
+                    
+            } //end of if...else block
+        
+        } //end of edit task function block
+
+        editBtn.addEventListener('click', editTask);    
+        deleteBtn.addEventListener('click', deleteTask);
+        
+    } //end of else block which checks if user has typed in their todo
         
 } //end of addTodo function
 
